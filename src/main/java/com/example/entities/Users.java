@@ -35,10 +35,7 @@ public class Users {
 
     
     // FK-> city , state , hub 
-    
-    
-    
-    
+    // DONE ! (go and see respective entities) 
     
     
     

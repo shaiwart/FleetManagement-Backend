@@ -29,6 +29,15 @@ public class Hubs {
     
     
     
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pickupHubId", referencedColumnName="hubId")
+    private Set<Booking> bookingsPickup; 
+    
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dropHubId", referencedColumnName="hubId")
+    private Set<Booking> bookingsDrop; 
+    
     
     
     public int getHubId() {

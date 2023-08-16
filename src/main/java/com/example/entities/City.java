@@ -25,6 +25,12 @@ public class City {
     private Set<Users> users; 
     
     
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerCityId", referencedColumnName="cityId")
+    private Set<Booking> bookings; 
     
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cityId", referencedColumnName="cityId")
+    private Set<Airport> airports; 
     
 }

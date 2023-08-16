@@ -27,4 +27,14 @@ public class State {
     private Set<Users> users; 
     
     
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerStateId", referencedColumnName="stateId")
+    private Set<Booking> bookings; 
+    
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "stateId", referencedColumnName="stateId")
+    private Set<Airport> airports; 
+    
+    
 }

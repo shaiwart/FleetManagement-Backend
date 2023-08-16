@@ -23,6 +23,9 @@ public class CarCategory {
     private Set<Car> cars; 
 	
 	
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "categoryId", referencedColumnName="categoryId")
+    private Set<Booking> bookings; 
 	
 	
 	
