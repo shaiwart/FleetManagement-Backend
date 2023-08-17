@@ -16,13 +16,9 @@ public class CarController {
 	@Autowired
 	private CarManager carManager; 
 	
-//	@GetMapping(value = "api/cars/{hub}/{type}")
-//	public List<Car> getCarsByHubAndCategory(@PathVariable int hubId, @PathVariable int categoryId) {
-//		
-//		return carManager.getCarsByCategory(hubId, categoryId); 
-//	}
 	
-	
+	// FOR STAFF 
+	// get cars by hubid & by cataegory which are vaialable  
 	@GetMapping(value = "api/cars/{hubId}/{categoryId}")
 	public List<Car> getCarsByHubAndCategory(@PathVariable int hubId, @PathVariable int categoryId) {
 	    return carManager.getCarsByCategory(hubId, categoryId); 

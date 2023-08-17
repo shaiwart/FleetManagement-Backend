@@ -118,6 +118,30 @@ public class Booking {
 		this.customerAadharNumber = customerAadharNumber;
 	}
 
+	public String getPassportNo() {
+		return passportNo;
+	}
+
+	public void setPassportNo(String passportNo) {
+		this.passportNo = passportNo;
+	}
+
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+
+	public Set<AddOn> getAddOn() {
+		return AddOn;
+	}
+
+	public void setAddOn(Set<AddOn> addOn) {
+		AddOn = addOn;
+	}
+
 	
 	
 	
