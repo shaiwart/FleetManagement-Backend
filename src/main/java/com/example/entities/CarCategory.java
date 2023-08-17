@@ -11,11 +11,11 @@ public class CarCategory {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int categoryId;
-	private char categoryName;
+	private String categoryName;
 	private String imgPath;
 	private double dailyRates;
 	private double weeklyRates;
-	private double monthlyRates;
+	private double monthlyRates; 
 	
 	
 	@OneToMany(cascade = CascadeType.ALL)
@@ -36,10 +36,10 @@ public class CarCategory {
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
-	public char getCategoryName() {
+	public String getCategoryName() {
 		return categoryName;
 	}
-	public void setCategoryName(char categoryName) {
+	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
 	public String getImgPath() {
