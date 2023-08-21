@@ -14,16 +14,28 @@ public class HubsController {
     @Autowired
     private HubsService hubsService;
 
+    
+    // Get all the hubs 
     @GetMapping("/api/hubs")
     public List<Hubs> getAllHubs() {
         return hubsService.getAllHubs();
     }
+
+    
+    // Get hubs by cityId 
+    @GetMapping("/api/hubs/{cityId}")
+    public List<Hubs> getHubsByCityId(@PathVariable int cityId) {
+    	return hubsService.getHubsByCityId(cityId); 
+    }
+    
+    
+    
+    
+    // ======= not required ========= //  
     
     // need update --> // need -> get all the cars from that hub 
     @GetMapping("/api/hub/{hubId}")
     public Hubs getHubById(@PathVariable int hubId) {
     	return hubsService.getHubById(hubId);
     }
-
-    // Other controller methods
 }

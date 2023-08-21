@@ -27,8 +27,8 @@ public class State {
     private Set<Users> users; 
     
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customerStateId", referencedColumnName="stateId")
+    @OneToMany(mappedBy =  "state") // cascade = CascadeType.ALL 
+//    @JoinColumn(name = "customerStateId", referencedColumnName="stateId")
     private Set<Booking> bookings; 
     
     
@@ -39,11 +39,6 @@ public class State {
 
 	public int getStateId() {
 		return stateId;
-	}
-
-
-	public void setStateId(int stateId) {
-		this.stateId = stateId;
 	}
 
 

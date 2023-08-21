@@ -29,13 +29,13 @@ public class Hubs {
     
     
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pickupHubId", referencedColumnName="hubId")
+    @OneToMany(mappedBy = "pickupHub")
+//    @JoinColumn(name = "pickupHubId", referencedColumnName="hubId")
     private Set<Booking> bookingsPickup; 
     
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "dropHubId", referencedColumnName="hubId")
+    @OneToMany(mappedBy = "dropHub")
+//    @JoinColumn(name = "dropHubId", referencedColumnName="hubId")
     private Set<Booking> bookingsDrop; 
     
     
@@ -43,11 +43,8 @@ public class Hubs {
     public int getHubId() {
         return hubId;
     }
-
-    public void setHubId(int hubId) {
-        this.hubId = hubId;
-    }
-
+    
+    
     public String getHubName() {
         return hubName;
     }

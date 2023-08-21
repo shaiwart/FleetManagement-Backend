@@ -18,5 +18,27 @@ public class AddOn {
 	
 	
 	
+	
+	public int getAddOnId() {
+		return addOnId;
+	}
+	public void setAddOnId(int addOnId) {
+		this.addOnId = addOnId;
+	}
+	public String getAddOnName() {
+		return addOnName;
+	}
+	public void setAddOnName(String addOnName) {
+		this.addOnName = addOnName;
+	}
+	public double getAddOnRate() {
+		return addOnRate;
+	}
+	public void setAddOnRate(double addOnRate) {
+		this.addOnRate = addOnRate;
+	}
+	
+	
+	
 
 }

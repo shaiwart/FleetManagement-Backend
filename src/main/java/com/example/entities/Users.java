@@ -1,5 +1,7 @@
 package com.example.entities;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -34,18 +36,16 @@ public class Users {
     private int isEmployee;
 
     
+    
     // FK-> city , state , hub 
     // DONE ! (go and see respective entities) 
     
-    
+    @OneToMany(mappedBy = "user") 
+    private List<Booking> bookings; 
     
     
 	public int getUserId() {
 		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public String getFirstName() {

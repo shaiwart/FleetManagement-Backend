@@ -22,4 +22,9 @@ public class HubsServiceImpl implements HubsService {
     public Hubs getHubById(int hubId) {
         return hubsRepository.findById(hubId).orElse(null);
     }
+
+	@Override
+	public List<Hubs> getHubsByCityId(int cityId) {
+		return hubsRepository.getHubsByCityId(cityId); 
+	}
 }

@@ -23,8 +23,19 @@ public class CarController {
 	public List<Car> getCarsByHubAndCategory(@PathVariable int hubId, @PathVariable int categoryId) {
 	    return carManager.getCarsByCategory(hubId, categoryId); 
 	}
+	
+	
+	
+	
+	
+	// ======= NOT REQUIRED ========= // 
+	
+	
+	// FOR STAFF 
+	// get all the cars from a hub 
+	
+	
 
 
 	
 }
-// 97b2ebfe-8319-4962-804c-37bd201eccef

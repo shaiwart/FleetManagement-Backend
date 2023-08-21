@@ -25,9 +25,13 @@ public class City {
     private Set<Users> users; 
     
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customerCityId", referencedColumnName="cityId")
+    @OneToMany(mappedBy =  "city")
+//    @JoinColumn(name = "customerCityId", referencedColumnName="cityId")
     private Set<Booking> bookings; 
+    
+//  @OneToMany(mappedBy =  "state") // cascade = CascadeType.ALL 
+//  @JoinColumn(name = "customerStateId", referencedColumnName="stateId")
+//  private Set<Booking> bookings; 
     
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cityId", referencedColumnName="cityId")
@@ -35,10 +39,6 @@ public class City {
 
 	public int getCityId() {
 		return cityId;
-	}
-
-	public void setCityId(int cityId) {
-		this.cityId = cityId;
 	}
 
 	public String getCityName() {

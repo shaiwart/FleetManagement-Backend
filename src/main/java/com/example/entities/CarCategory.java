@@ -18,23 +18,21 @@ public class CarCategory {
 	private double monthlyRates; 
 	
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL) 
     @JoinColumn(name = "categoryId", referencedColumnName="categoryId")
     private Set<Car> cars; 
 	
 	
-	@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "categoryId", referencedColumnName="categoryId")
+	@OneToMany(mappedBy = "category") 
+//    @JoinColumn(name = "categoryId", referencedColumnName="categoryId")
     private Set<Booking> bookings; 
+	
 	
 	
 	
 	
 	public int getCategoryId() {
 		return categoryId;
-	}
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
 	}
 	public String getCategoryName() {
 		return categoryName;

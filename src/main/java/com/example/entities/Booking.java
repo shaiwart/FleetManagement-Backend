@@ -10,56 +10,59 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
 public class Booking {
-	
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bookingId;
-	 
+
 	private LocalDateTime bookingDateAndTime;
-	
-	
-	
-	
-	private String  customerFirstName;
-	private String customerLastName;
-	private String customerMobileNumber;
-	private String userMailId;
-	private String customerDLNumber;
-	private String customerAadharNumber;
-	private String passportNo; 
-	
-	
-	
-	// isko bidirectional banao 
-    
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "userId")
-	private Users user;
-	
-	
-	@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "bookingId", referencedColumnName="bookingId")
-    private Set<AddOn> AddOn; 
+
+	private String firstName;
+	private String lastName;
+	private String mobileNumber;
+	private String mailId;
+	private String dLNumber;
+	private String aadharNumber;
+	private String passportNumber;
+
 	
 
-    
-    // FK-> carCate , users-one to one , hub-one to many (one hub will have many bookings), city,state-> one to many, 
-    
-    
-    
-    
-    
+	@ManyToOne
+	private Users user;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "bookingId", referencedColumnName = "bookingId")
+	private Set<AddOn> AddOn;
+
+	@ManyToOne
+	private State state;
+
+	@ManyToOne
+	private City city;
+	
+
+	@ManyToOne
+	private Hubs pickupHub; 
+	
+	
+	@ManyToOne
+	private Hubs dropHub; 
+	
+	
+	@ManyToOne
+	private CarCategory category; 
+	
+	
+	
+	
 	public int getBookingId() {
 		return bookingId;
-	}
-
-	public void setBookingId(int bookingId) {
-		this.bookingId = bookingId;
 	}
 
 	public LocalDateTime getBookingDateAndTime() {
@@ -70,60 +73,60 @@ public class Booking {
 		this.bookingDateAndTime = bookingDateAndTime;
 	}
 
-	public String getCustomerFirstName() {
-		return customerFirstName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setCustomerFirstName(String customerFirstName) {
-		this.customerFirstName = customerFirstName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getCustomerLastName() {
-		return customerLastName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setCustomerLastName(String customerLastName) {
-		this.customerLastName = customerLastName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getCustomerMobileNumber() {
-		return customerMobileNumber;
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
 
-	public void setCustomerMobileNumber(String customerMobileNumber) {
-		this.customerMobileNumber = customerMobileNumber;
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
-	public String getUserMailId() {
-		return userMailId;
+	public String getMailId() {
+		return mailId;
 	}
 
-	public void setUserMailId(String userMailId) {
-		this.userMailId = userMailId;
+	public void setMailId(String mailId) {
+		this.mailId = mailId;
 	}
 
-	public String getCustomerDLNumber() {
-		return customerDLNumber;
+	public String getdLNumber() {
+		return dLNumber;
 	}
 
-	public void setCustomerDLNumber(String customerDLNumber) {
-		this.customerDLNumber = customerDLNumber;
+	public void setdLNumber(String dLNumber) {
+		this.dLNumber = dLNumber;
 	}
 
-	public String getCustomerAadharNumber() {
-		return customerAadharNumber;
+	public String getAadharNumber() {
+		return aadharNumber;
 	}
 
-	public void setCustomerAadharNumber(String customerAadharNumber) {
-		this.customerAadharNumber = customerAadharNumber;
+	public void setAadharNumber(String aadharNumber) {
+		this.aadharNumber = aadharNumber;
 	}
 
-	public String getPassportNo() {
-		return passportNo;
+	public String getPassportNumber() {
+		return passportNumber;
 	}
 
-	public void setPassportNo(String passportNo) {
-		this.passportNo = passportNo;
+	public void setPassportNumber(String passportNumber) {
+		this.passportNumber = passportNumber;
 	}
 
 	public Users getUser() {
@@ -142,7 +145,49 @@ public class Booking {
 		AddOn = addOn;
 	}
 
-	
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+	public Hubs getPickupHub() {
+		return pickupHub;
+	}
+
+	public void setPickupHub(Hubs pickupHub) {
+		this.pickupHub = pickupHub;
+	}
+
+	public Hubs getDropHub() {
+		return dropHub;
+	}
+
+	public void setDropHub(Hubs dropHub) {
+		this.dropHub = dropHub;
+	}
+
+	public void setBookingId(int bookingId) {
+		this.bookingId = bookingId;
+	}
+
+	public CarCategory getCategory() {
+		return category;
+	}
+
+	public void setCategory(CarCategory category) {
+		this.category = category;
+	}
 	
 	
 
