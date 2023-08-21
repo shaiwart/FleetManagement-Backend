@@ -7,8 +7,8 @@ import jakarta.persistence.*;
 @Table
 public class State {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int stateId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // definition assigned to kanade 
+    private int stateId; 
     private String stateName;
     
     

@@ -11,11 +11,12 @@ import com.example.repositories.CityRepository;
 @Service
 public class CityServiceImpl implements CityService {
     @Autowired
-    private CityRepository cityRepository;
+    private CityRepository cityRepository; // 
 
+    
     @Override
-    public List<City> getAllCities() {
-        return cityRepository.findAll();
+    public List<City> getAllCities(int stateId) {
+        return cityRepository.getAllCitiesByStateId(stateId); // 
     }
 
     @Override

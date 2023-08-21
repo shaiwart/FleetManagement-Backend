@@ -6,4 +6,5 @@ import com.example.entities.Car;
 
 public interface CarManager {
 	List<Car> getCarsByCategory(int hubId, int categoryId); 
+
 }

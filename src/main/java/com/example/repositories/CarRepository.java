@@ -22,6 +22,8 @@ public interface CarRepository extends JpaRepository <Car, Integer> {
 	
 	
 	
+	
+	
 //	@Modifying
 //	@Query(value = "update tour set cost = :cost where t_id= :myid", nativeQuery = true)
 //	void updatePrice(@Param("cost") double cost, @Param("myid") int id); 

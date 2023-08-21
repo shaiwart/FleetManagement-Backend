@@ -9,5 +9,5 @@ import com.example.entities.State;
 @Repository
 @Transactional
 public interface StateRepository extends JpaRepository<State, Integer> {
-
+	// by inheritance many simple methods is present here from JpaRepository 
 }

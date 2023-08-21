@@ -15,10 +15,11 @@ public class CityController {
     private CityService cityService;
 
     
-    // NO need -> can dump later 
-    @GetMapping("/api/cities")
-    public List<City> getAllCities() {
-        return cityService.getAllCities();
+    // NO need -> can dump later => get all cities by stateId 
+    @CrossOrigin
+    @GetMapping("/api/cities/{stateId}")
+    public List<City> getAllCities(@PathVariable int stateId) {
+        return cityService.getAllCities(stateId);
     }
     
     
