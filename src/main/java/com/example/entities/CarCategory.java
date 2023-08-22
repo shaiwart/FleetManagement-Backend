@@ -2,6 +2,8 @@ package com.example.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 
@@ -18,11 +20,11 @@ public class CarCategory {
 	private double monthlyRates; 
 	
 	
-	@OneToMany(cascade = CascadeType.ALL) 
+	@OneToMany 
     @JoinColumn(name = "categoryId", referencedColumnName="categoryId")
     private Set<Car> cars; 
 	
-	
+//	@JsonManagedReference
 	@OneToMany(mappedBy = "category") 
 //    @JoinColumn(name = "categoryId", referencedColumnName="categoryId")
     private Set<Booking> bookings; 

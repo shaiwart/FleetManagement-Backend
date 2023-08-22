@@ -2,6 +2,10 @@ package com.example.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -11,21 +15,29 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cityId;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "stateId")
+    @JsonIgnore
+    private State state;
     private String cityName;
+    
+    
+    
 
     // One city will have multiple hubs  
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade  = CascadeType.ALL)
     @JoinColumn(name = "cityId", referencedColumnName="cityId")
     private Set<Hubs> hubs; 
     
     
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "cityId", referencedColumnName="cityId")
     private Set<Users> users; 
     
     
-    @OneToMany(mappedBy =  "city")
+//    @JsonManagedReference
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy =  "city")
 //    @JoinColumn(name = "customerCityId", referencedColumnName="cityId")
     private Set<Booking> bookings; 
     
@@ -33,9 +45,12 @@ public class City {
 //  @JoinColumn(name = "customerStateId", referencedColumnName="stateId")
 //  private Set<Booking> bookings; 
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "cityId", referencedColumnName="cityId")
     private Set<Airport> airports;
+    
+    
+   
 
 	public int getCityId() {
 		return cityId;

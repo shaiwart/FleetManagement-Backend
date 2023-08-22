@@ -2,6 +2,8 @@ package com.example.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -28,12 +30,12 @@ public class Hubs {
     private Set<Users> users; 
     
     
-    
+//    @JsonManagedReference
     @OneToMany(mappedBy = "pickupHub")
 //    @JoinColumn(name = "pickupHubId", referencedColumnName="hubId")
     private Set<Booking> bookingsPickup; 
     
-    
+//    @JsonManagedReference
     @OneToMany(mappedBy = "dropHub")
 //    @JoinColumn(name = "dropHubId", referencedColumnName="hubId")
     private Set<Booking> bookingsDrop; 

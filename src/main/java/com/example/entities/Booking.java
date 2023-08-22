@@ -1,11 +1,15 @@
 package com.example.entities;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,46 +19,48 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
-public class Booking {
+public class Booking implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int bookingId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	private int bookingId; 
 
-	private LocalDateTime bookingDateAndTime;
+	private LocalDateTime bookingDateAndTime; 
 
-	private String firstName;
-	private String lastName;
-	private String mobileNumber;
-	private String mailId;
-	private String dLNumber;
-	private String aadharNumber;
-	private String passportNumber;
+	private String firstName; 
+	private String lastName; 
+	private String mobileNumber; 
+	private String mailId; 
+	private String dLNumber; 
+	private String aadharNumber; 
+	private String passportNumber; 
 
 	
-
+//	@JsonBackReference
 	@ManyToOne
 	private Users user;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "bookingId", referencedColumnName = "bookingId")
 	private Set<AddOn> AddOn;
-
+	
+//	@JsonBackReference
 	@ManyToOne
 	private State state;
 
+//	@JsonBackReference
 	@ManyToOne
 	private City city;
 	
-
+//	@JsonBackReference
 	@ManyToOne
 	private Hubs pickupHub; 
 	
-	
+//	@JsonBackReference
 	@ManyToOne
 	private Hubs dropHub; 
 	
-	
+//	@JsonBackReference
 	@ManyToOne
 	private CarCategory category; 
 	

@@ -14,10 +14,19 @@ import jakarta.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface BookingRepository extends JpaRepository <Booking, Integer>{
+public interface BookingRepository extends JpaRepository <Booking, Integer>{ 
 	
 	
-	@Query(value = "insert into booking  where hub_id = :hubId and category_id = :categoryId and availabiity = 1", nativeQuery = true)
-	List<Car> getCarsByCategory(@Param("hubId") int hubId, @Param("categoryId") int categoryId);  
+	@Query(value = "select * from booking where mobile_number = :phoneNumber order by booking_date_and_time DESC limit 1;", nativeQuery = true)
+	public Booking getBookingByPhoneNumber(@Param ("phoneNumber") String phoneNumber); 
+	
+	
+	@Query(value = "select * from booking where mail_id = :emailId order by booking_date_and_time DESC limit 1;", nativeQuery = true) 
+	public Booking getBookingByEmailId(@Param ("emailId") String emailId); 
+	
+	
+	@Query(value = "select booking_id from booking where mobile_number = :phoneNumber order by booking_date_and_time DESC limit 1;", nativeQuery = true) 
+	public int getBookingIdByPhoneNumber(String phoneNumber); 
+	
 	
 }

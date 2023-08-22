@@ -2,6 +2,8 @@ package com.example.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -37,9 +39,7 @@ public class Users {
 
     
     
-    // FK-> city , state , hub 
-    // DONE ! (go and see respective entities) 
-    
+//    @JsonManagedReference
     @OneToMany(mappedBy = "user") 
     private List<Booking> bookings; 
     

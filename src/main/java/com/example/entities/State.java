@@ -2,6 +2,8 @@ package com.example.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 @Entity
 @Table
@@ -11,28 +13,20 @@ public class State {
     private int stateId; 
     private String stateName;
     
-    
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "state_Id", referencedColumnName="stateId")
-    private Set<City> cities; 
-    
-    
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "stateId", referencedColumnName="stateId")
     private Set<Hubs> hubs; 
     
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "stateId", referencedColumnName="stateId")
     private Set<Users> users; 
     
-    
-    @OneToMany(mappedBy =  "state") // cascade = CascadeType.ALL 
-//    @JoinColumn(name = "customerStateId", referencedColumnName="stateId")
+    @OneToMany(mappedBy =  "state") 
     private Set<Booking> bookings; 
     
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "stateId", referencedColumnName="stateId")
     private Set<Airport> airports;
 
@@ -50,17 +44,6 @@ public class State {
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
 	}
-
-
-	public Set<City> getCities() {
-		return cities;
-	}
-
-
-	public void setCities(Set<City> cities) {
-		this.cities = cities;
-	}
-
 
 	public Set<Hubs> getHubs() {
 		return hubs;
