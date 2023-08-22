@@ -19,16 +19,9 @@ public class City {
     @JoinColumn(name = "stateId")
     @JsonIgnore
     private State state;
+    
     private String cityName;
-    
-    
-    
-
-    // One city will have multiple hubs  
-    @OneToMany(fetch = FetchType.EAGER, cascade  = CascadeType.ALL)
-    @JoinColumn(name = "cityId", referencedColumnName="cityId")
-    private Set<Hubs> hubs; 
-    
+   
     
     
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -52,6 +45,14 @@ public class City {
     
    
 
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
 	public int getCityId() {
 		return cityId;
 	}
@@ -63,15 +64,7 @@ public class City {
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
-
-	public Set<Hubs> getHubs() {
-		return hubs;
-	}
-
-	public void setHubs(Set<Hubs> hubs) {
-		this.hubs = hubs;
-	}
-
+	
 	public Set<Users> getUsers() {
 		return users;
 	}

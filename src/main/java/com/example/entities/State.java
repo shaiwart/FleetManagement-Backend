@@ -13,10 +13,6 @@ public class State {
     private int stateId; 
     private String stateName;
     
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "stateId", referencedColumnName="stateId")
-    private Set<Hubs> hubs; 
-    
     
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "stateId", referencedColumnName="stateId")
@@ -44,16 +40,6 @@ public class State {
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
 	}
-
-	public Set<Hubs> getHubs() {
-		return hubs;
-	}
-
-
-	public void setHubs(Set<Hubs> hubs) {
-		this.hubs = hubs;
-	}
-
 
 	public Set<Users> getUsers() {
 		return users;

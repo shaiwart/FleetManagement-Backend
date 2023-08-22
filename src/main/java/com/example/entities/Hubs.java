@@ -2,6 +2,7 @@ package com.example.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*;
@@ -16,6 +17,14 @@ public class Hubs {
     private String hubName;
     private String contactNumber;
     private String address;
+    
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "cityId")
+    @JsonIgnore
+    private City city;
+    
+    
+    // = = = = = = = = = 
 
     
     // one hub will have multiple cars 
@@ -39,6 +48,10 @@ public class Hubs {
     @OneToMany(mappedBy = "dropHub")
 //    @JoinColumn(name = "dropHubId", referencedColumnName="hubId")
     private Set<Booking> bookingsDrop; 
+    
+    
+    
+    
     
     
     
