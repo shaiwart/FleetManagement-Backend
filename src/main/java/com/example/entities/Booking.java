@@ -1,10 +1,11 @@
 package com.example.entities;
 
-import java.io.Serializable;
+
 import java.time.LocalDateTime;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -19,7 +20,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
-public class Booking implements Serializable {
+public class Booking {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
@@ -30,39 +31,53 @@ public class Booking implements Serializable {
 	private String firstName; 
 	private String lastName; 
 	private String mobileNumber; 
-	private String mailId; 
+	private String emailId; 
 	private String dLNumber; 
-	private String aadharNumber; 
-	private String passportNumber; 
+	private String aadharNo; 
+	private String passportNo; 
 
 	
-//	@JsonBackReference
-	@ManyToOne
-	private Users user;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "bookingId", referencedColumnName = "bookingId")
-	private Set<AddOn> AddOn;
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "userId")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	private Users user; 
 	
-//	@JsonBackReference
-	@ManyToOne
-	private State state;
+	
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "stateId")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	private State state; 
+	
 
-//	@JsonBackReference
-	@ManyToOne
-	private City city;
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "cityId")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	private City city; 
+
 	
-//	@JsonBackReference
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "pickupHubId", insertable=false, updatable=false)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+//	@Column(insertable=false, updatable=false)
 	private Hubs pickupHub; 
 	
-//	@JsonBackReference
-	@ManyToOne
+
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "dropHubId", insertable=false, updatable=false)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//	@Column(insertable=false, updatable=false)
 	private Hubs dropHub; 
 	
-//	@JsonBackReference
-	@ManyToOne
+
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "categoryId")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 	private CarCategory category; 
+	
+	
+	
+	// = = = = = = = = = = = = = = = 
 	
 	
 	
@@ -103,14 +118,6 @@ public class Booking implements Serializable {
 		this.mobileNumber = mobileNumber;
 	}
 
-	public String getMailId() {
-		return mailId;
-	}
-
-	public void setMailId(String mailId) {
-		this.mailId = mailId;
-	}
-
 	public String getdLNumber() {
 		return dLNumber;
 	}
@@ -119,36 +126,12 @@ public class Booking implements Serializable {
 		this.dLNumber = dLNumber;
 	}
 
-	public String getAadharNumber() {
-		return aadharNumber;
-	}
-
-	public void setAadharNumber(String aadharNumber) {
-		this.aadharNumber = aadharNumber;
-	}
-
-	public String getPassportNumber() {
-		return passportNumber;
-	}
-
-	public void setPassportNumber(String passportNumber) {
-		this.passportNumber = passportNumber;
-	}
-
 	public Users getUser() {
 		return user;
 	}
 
 	public void setUser(Users user) {
 		this.user = user;
-	}
-
-	public Set<AddOn> getAddOn() {
-		return AddOn;
-	}
-
-	public void setAddOn(Set<AddOn> addOn) {
-		AddOn = addOn;
 	}
 
 	public State getState() {
@@ -194,7 +177,40 @@ public class Booking implements Serializable {
 	public void setCategory(CarCategory category) {
 		this.category = category;
 	}
+
 	
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getAadharNo() {
+		return aadharNo;
+	}
+
+	public void setAadharNo(String aadharNo) {
+		this.aadharNo = aadharNo;
+	}
+
+	public String getPassportNo() {
+		return passportNo;
+	}
+
+	public void setPassportNo(String passportNo) {
+		this.passportNo = passportNo;
+	}
 	
+	@Override
+	public String toString() {
+		return "Booking [bookingId=" + bookingId + ", bookingDateAndTime=" + bookingDateAndTime + ", firstName="
+				+ firstName + ", lastName=" + lastName + ", mobileNumber=" + mobileNumber + ", emailId=" + emailId
+				+ ", dLNumber=" + dLNumber + ", aadharNo=" + aadharNo + ", passportNo=" + passportNo + ", user=" + user
+				+ ", state=" + state + ", city=" + city + ", pickupHub=" + pickupHub + ", dropHub=" + dropHub
+				+ ", category=" + category + "]";
+	}
 
 }

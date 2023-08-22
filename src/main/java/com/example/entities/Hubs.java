@@ -22,31 +22,16 @@ public class Hubs {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "cityId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-//    @JsonIgnore
     private City city; 
     
     
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "airportId")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-//	@JsonIgnore
 	private Airport airport;
     
     // = = = = = = = = = = = = = = = = = = 
-    
-    
-    
-//    @JsonManagedReference
-    @OneToMany(mappedBy = "pickupHub")
-//    @JoinColumn(name = "pickupHubId", referencedColumnName="hubId")
-    private Set<Booking> bookingsPickup; 
-    
-//    @JsonManagedReference
-    @OneToMany(mappedBy = "dropHub")
-//    @JoinColumn(name = "dropHubId", referencedColumnName="hubId")
-    private Set<Booking> bookingsDrop;
 
-    
     
     
     
@@ -100,28 +85,13 @@ public class Hubs {
 		this.airport = airport;
 	}
 
-	public Set<Booking> getBookingsPickup() {
-		return bookingsPickup;
-	}
-
-	public void setBookingsPickup(Set<Booking> bookingsPickup) {
-		this.bookingsPickup = bookingsPickup;
-	}
-
-	public Set<Booking> getBookingsDrop() {
-		return bookingsDrop;
-	}
-
-	public void setBookingsDrop(Set<Booking> bookingsDrop) {
-		this.bookingsDrop = bookingsDrop;
-	}
-
 	@Override
 	public String toString() {
 		return "Hubs [hubId=" + hubId + ", hubName=" + hubName + ", contactNumber=" + contactNumber + ", address="
-				+ address + ", city=" + city + ", airport=" + airport + ", bookingsPickup=" + bookingsPickup
-				+ ", bookingsDrop=" + bookingsDrop + "]";
-	} 
+				+ address + ", city=" + city + ", airport=" + airport + "]";
+	}
+
+	
     
    
     

@@ -35,7 +35,7 @@ public class Users {
     private long passportNo;
     
     
-    private int isReigsteredUser;
+    private int isRegisteredUser;
     private int isEmployee;
 
     
@@ -60,11 +60,7 @@ public class Users {
     
     
     
-    // = = = = = = 
-    
-    @OneToMany(mappedBy = "user") 
-    private List<Booking> bookings; 
-    
+    // = = = = = = = = = = =
     
 	public int getUserId() {
 		return userId;
@@ -142,12 +138,12 @@ public class Users {
 		this.passportNo = passportNo;
 	}
 
-	public int getIsReigsteredUser() {
-		return isReigsteredUser;
+	public int getIsRegisteredUser() {
+		return isRegisteredUser;
 	}
 
-	public void setIsReigsteredUser(int isReigsteredUser) {
-		this.isReigsteredUser = isReigsteredUser;
+	public void setIsRegisteredUser(int isRegisteredUser) {
+		this.isRegisteredUser = isRegisteredUser;
 	}
 
 	public int getIsEmployee() {
@@ -182,14 +178,6 @@ public class Users {
 		this.hubs = hubs;
 	}
 
-	public List<Booking> getBookings() {
-		return bookings;
-	}
-
-	public void setBookings(List<Booking> bookings) {
-		this.bookings = bookings;
-	}
-
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
@@ -198,11 +186,10 @@ public class Users {
 	public String toString() {
 		return "Users [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", mobileNumber="
 				+ mobileNumber + ", emailId=" + emailId + ", address=" + address + ", password=" + password + ", dlNo="
-				+ dlNo + ", aadharNo=" + aadharNo + ", passportNo=" + passportNo + ", isReigsteredUser="
-				+ isReigsteredUser + ", isEmployee=" + isEmployee + ", state=" + state + ", city=" + city + ", hubs="
-				+ hubs + ", bookings=" + bookings + "]";
+				+ dlNo + ", aadharNo=" + aadharNo + ", passportNo=" + passportNo + ", isRegisteredUser="
+				+ isRegisteredUser + ", isEmployee=" + isEmployee + ", state=" + state + ", city=" + city + ", hubs="
+				+ hubs + "]";
 	}
-
 
 	
 

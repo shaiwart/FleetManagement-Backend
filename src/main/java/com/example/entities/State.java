@@ -13,10 +13,6 @@ public class State {
     private int stateId; 
     private String stateName;
     
-    
-    @OneToMany(mappedBy =  "state") 
-    private Set<Booking> bookings; 
-
 
 	public int getStateId() {
 		return stateId;
@@ -33,20 +29,11 @@ public class State {
 	}
 
 
-	public Set<Booking> getBookings() {
-		return bookings;
-	}
-
-
-	public void setBookings(Set<Booking> bookings) {
-		this.bookings = bookings;
-	}
-
-
 	@Override
 	public String toString() {
-		return "State [stateId=" + stateId + ", stateName=" + stateName + ", bookings=" + bookings + "]";
+		return "State [stateId=" + stateId + ", stateName=" + stateName + "]";
 	}
-    
+
+	
     
 }

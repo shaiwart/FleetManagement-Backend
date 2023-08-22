@@ -56,7 +56,7 @@ public class Billing {
 	
 	@OneToOne
     @JoinColumn(name = "dropHubId")
-	private Hubs hubDrop ;
+	private Hubs hubDrop;
 
 	public int getBillingId() {
 		return billingId;

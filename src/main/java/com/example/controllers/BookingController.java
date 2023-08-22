@@ -2,6 +2,7 @@ package com.example.controllers;
 
 import com.example.entities.Airport;
 import com.example.entities.Booking;
+import com.example.entities.Hubs;
 import com.example.services.AirportService;
 import com.example.services.BookingService;
 
@@ -15,14 +16,28 @@ import org.springframework.web.bind.annotation.*;
 public class BookingController {
 
 	@Autowired
-    private BookingService bookingService;
+    private BookingService bookingService; 
+	
 	
 	
 	// add record into booking table 
 	@PostMapping("/api/addbooking")
-	public void save(@RequestBody  Booking booking)
-	{
+	public void save(@RequestBody  Booking booking) {
+
+		System.out.println("before"+ booking); 
+		
+		Hubs pHub = booking.getPickupHub();  
+		Hubs dHub = booking.getDropHub(); 
+		int pId = pHub.getHubId(); 
+		int dId = dHub.getHubId(); 
+		Optional<Hubs> ref1 = bookingService.getById(pId);
+		Optional<Hubs> ref2 = bookingService.getById(dId); 
+		
+		booking.setPickupHub(ref1.get()); 
+		booking.setDropHub(ref2.get()); 
+		
 		System.out.println(booking); 
+		
 		bookingService.save(booking);  
 	}
 	

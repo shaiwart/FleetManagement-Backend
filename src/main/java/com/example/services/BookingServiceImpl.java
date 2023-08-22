@@ -7,13 +7,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.entities.Booking;
+import com.example.entities.Hubs;
 import com.example.repositories.BookingRepository;
+import com.example.repositories.HubsRepository;
 
 @Service
 public class BookingServiceImpl implements BookingService {
 	
 	@Autowired
 	private BookingRepository bookingrepository;
+	
+	@Autowired
+	private HubsRepository hubRepository; 
 
 	
 	
@@ -38,5 +43,13 @@ public class BookingServiceImpl implements BookingService {
 		return bookingrepository.getBookingByEmailId(emailId); 
 	}
 
+
+	@Override
+	public Optional<Hubs> getById(int id) {
+		return hubRepository.findById(id); 
+	}
+
+	
+	
 	
 }

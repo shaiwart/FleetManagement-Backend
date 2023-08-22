@@ -18,5 +18,6 @@ public interface HubsRepository extends JpaRepository<Hubs, Integer> {
 	public List<Hubs> getHubsByCityId(@Param ("cityId") int cityId); 
 	
 	@Query(value = "select * from hubs where airport_id = :airportId", nativeQuery = true)
-	public Hubs getHubsByAirportId(@Param ("airportId") int airportId);  
+	public Hubs getHubsByAirportId(@Param ("airportId") int airportId); 
+	
 }
