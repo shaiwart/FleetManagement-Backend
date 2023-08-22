@@ -16,17 +16,17 @@ import jakarta.transaction.Transactional;
 @Transactional
 public interface BookingRepository extends JpaRepository <Booking, Integer>{ 
 	
-	
+	// will give latest record of a user 
 	@Query(value = "select * from booking where mobile_number = :phoneNumber order by booking_date_and_time DESC limit 1;", nativeQuery = true)
 	public Booking getBookingByPhoneNumber(@Param ("phoneNumber") String phoneNumber); 
 	
-	
-	@Query(value = "select * from booking where mail_id = :emailId order by booking_date_and_time DESC limit 1;", nativeQuery = true) 
+	// will give latest record of a user 
+	@Query(value = "select * from booking where email_id = :emailId order by booking_date_and_time DESC limit 1;", nativeQuery = true) 
 	public Booking getBookingByEmailId(@Param ("emailId") String emailId); 
 	
 	
-	@Query(value = "select booking_id from booking where mobile_number = :phoneNumber order by booking_date_and_time DESC limit 1;", nativeQuery = true) 
-	public int getBookingIdByPhoneNumber(String phoneNumber); 
+//	@Query(value = "select booking_id from booking where mobile_number = :phoneNumber order by booking_date_and_time DESC limit 1;", nativeQuery = true) 
+//	public int getBookingIdByPhoneNumber(String phoneNumber); 
 	
 	
 }

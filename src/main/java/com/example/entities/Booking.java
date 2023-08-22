@@ -56,18 +56,28 @@ public class Booking {
 	private City city; 
 
 	
-	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-	@JoinColumn(name = "pickupHubId", insertable=false, updatable=false)
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-//	@Column(insertable=false, updatable=false)
+//	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "pickupHub", insertable=false, updatable=false)
+//	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//	private Hubs pickupHub; 
+	
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "pickupHub_hubId", referencedColumnName = "hubId")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Hubs pickupHub; 
 	
 
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-	@JoinColumn(name = "dropHubId", insertable=false, updatable=false)
+	@JoinColumn(name = "dropHub_hubId", referencedColumnName = "hubId")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-//	@Column(insertable=false, updatable=false)
 	private Hubs dropHub; 
+	
+	
+//	@JoinColumn(name = "sender_uuid", 
+//            referencedColumnName = "uuid", // this uuid is in the User entity
+//            insertable = false, updatable = false) 
+//	private User sender;
 	
 
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
@@ -203,7 +213,7 @@ public class Booking {
 	public void setPassportNo(String passportNo) {
 		this.passportNo = passportNo;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Booking [bookingId=" + bookingId + ", bookingDateAndTime=" + bookingDateAndTime + ", firstName="
@@ -212,5 +222,9 @@ public class Booking {
 				+ ", state=" + state + ", city=" + city + ", pickupHub=" + pickupHub + ", dropHub=" + dropHub
 				+ ", category=" + category + "]";
 	}
+
+	
+	
+	
 
 }

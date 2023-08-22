@@ -24,39 +24,36 @@ public class BookingController {
 	@PostMapping("/api/addbooking")
 	public void save(@RequestBody  Booking booking) {
 
-		System.out.println("before"+ booking); 
-		
-		Hubs pHub = booking.getPickupHub();  
-		Hubs dHub = booking.getDropHub(); 
-		int pId = pHub.getHubId(); 
-		int dId = dHub.getHubId(); 
-		Optional<Hubs> ref1 = bookingService.getById(pId);
-		Optional<Hubs> ref2 = bookingService.getById(dId); 
-		
-		booking.setPickupHub(ref1.get()); 
-		booking.setDropHub(ref2.get()); 
-		
-		System.out.println(booking); 
+//		System.out.println("before"+ booking); 
+//		
+//		Hubs pHub = booking.getPickupHub();  
+//		Hubs dHub = booking.getDropHub(); 
+//		int pId = pHub.getHubId(); 
+//		int dId = dHub.getHubId(); 
+//		Optional<Hubs> ref1 = bookingService.getById(pId); 
+//		Optional<Hubs> ref2 = bookingService.getById(dId); 
+//		
+//		booking.setPickupHub(ref1.get()); 
+////		booking.setDropHub(ref2.get()); 
+//		
+//		System.out.println(booking); 
 		
 		bookingService.save(booking);  
 	}
 	
 	
-	// get record from booking table BY PHONE NUMBER 
+	// get record from booking table BY PHONE NUMBER // will give latest record of a user 
 	@GetMapping("/api/booking/by-phone/{phoneNumber}")
-	@ResponseBody
-	public Optional<Booking> getBookingByPhoneNumber(@PathVariable String phoneNumber) { 
-//		return bookingService.getBookingByPhoneNumber(phoneNumber); 
+	public Booking getBookingByPhoneNumber(@PathVariable String phoneNumber) { 
 		var abc = bookingService.getBookingByPhoneNumber(phoneNumber); 
-		
 		return abc; 
 	}
 	
 	
-	// get record from booking table BY EMAIL ID 
+	// get record from booking table BY EMAIL ID // will give latest record of a user 
 	@GetMapping("/api/booking/by-email/{emailId}")
-	public Optional<Booking> getBookingByEmailId(@PathVariable String emailId) { 
-		return null;  
+	public Booking getBookingByEmailId(@PathVariable String emailId) { 
+		return bookingService.getBookingByEmailId(emailId); 
 	}
 	
 }

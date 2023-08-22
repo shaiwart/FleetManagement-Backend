@@ -29,13 +29,8 @@ public class BookingServiceImpl implements BookingService {
 
 	
 	@Override
-	public Optional<Booking> getBookingByPhoneNumber(String phoneNumber) {
-		
-		int bookingId = bookingrepository.getBookingIdByPhoneNumber(phoneNumber); 
-		
-//		return bookingrepository.getBookingByPhoneNumber(phoneNumber); 
-		return Optional.ofNullable(bookingrepository.findById(bookingId).orElse(null)); 
-		
+	public Booking getBookingByPhoneNumber(String phoneNumber) {
+		return bookingrepository.getBookingByPhoneNumber(phoneNumber); 
 	}
 	
 	@Override 
@@ -44,11 +39,12 @@ public class BookingServiceImpl implements BookingService {
 	}
 
 
-	@Override
-	public Optional<Hubs> getById(int id) {
-		return hubRepository.findById(id); 
-	}
+//	@Override
+//	public Optional<Hubs> getById(int id) {
+//		return hubRepository.findById(id); 
+//	}
 
+	
 	
 	
 	

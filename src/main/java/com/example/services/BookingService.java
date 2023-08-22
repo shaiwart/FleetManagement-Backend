@@ -10,9 +10,9 @@ public interface BookingService {
 	
 	void save(Booking booking);
 	
-	public Optional<Booking> getBookingByPhoneNumber(String phoneNumber); 
+	public Booking getBookingByPhoneNumber(String phoneNumber); 
 	
 	public Booking getBookingByEmailId(String emailId);  
 	
-	public Optional<Hubs> getById(int id); 
+//	public Optional<Hubs> getById(int id); 
 }
