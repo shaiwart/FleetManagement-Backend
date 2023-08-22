@@ -1,6 +1,7 @@
 package com.example.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
 
@@ -20,12 +21,14 @@ public class Car {
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "categoryId")
-    @JsonIgnore
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+//    @JsonIgnore
     private CarCategory category;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "hubId")
-    @JsonIgnore
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+//    @JsonIgnore
     private Hubs hubs;
 	
 

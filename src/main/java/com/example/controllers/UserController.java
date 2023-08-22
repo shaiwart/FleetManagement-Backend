@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import com.example.entities.Airport;
+import com.example.entities.Booking;
 import com.example.entities.Users;
 import com.example.services.AirportService;
 import com.example.services.UserService;
@@ -16,11 +17,19 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // get all airport 
+    // get user by email + password 
     @GetMapping("/api/user/{emailId}/{password}") 
     public Users getUserByEmailIdAndPass(@PathVariable String emailId, @PathVariable String password) {
         var temp = userService.getUserByEmailIdAndPass(emailId, password);
         System.out.println(temp); 
     	return temp;  
     }
+    
+    // POST record in user table 
+    @PostMapping("/api/user/add")
+	public void addUser(@RequestBody  Users user)
+	{
+		System.out.println(user); 
+		userService.addUser(user); 
+	}
 }

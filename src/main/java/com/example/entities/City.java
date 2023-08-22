@@ -17,7 +17,8 @@ public class City {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "stateId")
-    @JsonIgnore
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+//    @JsonIgnore
     private State state;
     
     private String cityName;
@@ -58,6 +59,12 @@ public class City {
 
 	public void setBookings(Set<Booking> bookings) {
 		this.bookings = bookings;
+	}
+
+	@Override
+	public String toString() {
+		return "City [cityId=" + cityId + ", state=" + state + ", cityName=" + cityName + ", bookings=" + bookings
+				+ "]";
 	}
     
     

@@ -41,6 +41,12 @@ public class State {
 	public void setBookings(Set<Booking> bookings) {
 		this.bookings = bookings;
 	}
+
+
+	@Override
+	public String toString() {
+		return "State [stateId=" + stateId + ", stateName=" + stateName + ", bookings=" + bookings + "]";
+	}
     
     
 }

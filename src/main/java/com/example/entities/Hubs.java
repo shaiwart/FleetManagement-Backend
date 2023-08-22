@@ -3,6 +3,7 @@ package com.example.entities;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*;
@@ -20,13 +21,15 @@ public class Hubs {
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "cityId")
-    @JsonIgnore
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+//    @JsonIgnore
     private City city; 
     
     
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "airportId")
-	@JsonIgnore
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+//	@JsonIgnore
 	private Airport airport;
     
     // = = = = = = = = = = = = = = = = = = 
@@ -111,6 +114,13 @@ public class Hubs {
 
 	public void setBookingsDrop(Set<Booking> bookingsDrop) {
 		this.bookingsDrop = bookingsDrop;
+	}
+
+	@Override
+	public String toString() {
+		return "Hubs [hubId=" + hubId + ", hubName=" + hubName + ", contactNumber=" + contactNumber + ", address="
+				+ address + ", city=" + city + ", airport=" + airport + ", bookingsPickup=" + bookingsPickup
+				+ ", bookingsDrop=" + bookingsDrop + "]";
 	} 
     
    

@@ -29,5 +29,5 @@ public class CityController {
     	return cityService.getCityById(cityId);
     }
 
-    // Other controller methods
+    
 }
