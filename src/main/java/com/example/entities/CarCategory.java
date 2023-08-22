@@ -19,11 +19,6 @@ public class CarCategory {
 	private double weeklyRates;
 	private double monthlyRates; 
 	
-	
-	@OneToMany 
-    @JoinColumn(name = "categoryId", referencedColumnName="categoryId")
-    private Set<Car> cars; 
-	
 //	@JsonManagedReference
 	@OneToMany(mappedBy = "category") 
 //    @JoinColumn(name = "categoryId", referencedColumnName="categoryId")

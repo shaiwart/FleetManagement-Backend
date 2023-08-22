@@ -19,8 +19,12 @@ public class CarManagerImpl implements CarManager {
 	@Override
 	public List<Car> getCarsByCategory(int hubId, int categoryId) {
 		return carRepo.getCarsByCategory(hubId, categoryId); 
-		
-		
+	}
+
+
+	@Override
+	public List<Car> getCarsByHub(int hubId) {
+		return carRepo.getCarsByHub(hubId);
 	}
 
 }

@@ -19,23 +19,9 @@ public interface CarRepository extends JpaRepository <Car, Integer> {
 	List<Car> getCarsByCategory(@Param("hubId") int hubId, @Param("categoryId") int categoryId);  
 	
 	
+	@Query(value = "select * from car where hub_id = :hubId", nativeQuery = true) 
+	public List<Car> getCarsByHub(@Param("hubId") int hubId); 
 	
-	
-	
-	
-	
-//	@Modifying
-//	@Query(value = "update tour set cost = :cost where t_id= :myid", nativeQuery = true)
-//	void updatePrice(@Param("cost") double cost, @Param("myid") int id); 
-//	
-//	
-//	List<Tour> findByType(String type); 
-//	
-//	
-//	
-//	@Modifying
-//	@Query("update Tour t set t.name = :name where t.t_id = :id")
-//	void updateName(@Param("name") String name, @Param("id") int id); 
 }
 
 

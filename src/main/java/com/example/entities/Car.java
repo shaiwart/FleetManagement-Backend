@@ -1,5 +1,7 @@
 package com.example.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -16,11 +18,17 @@ public class Car {
 	private char color;
 	private int availabiity;
 	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "categoryId")
+    @JsonIgnore
+    private CarCategory category;
 	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "hubId")
+    @JsonIgnore
+    private Hubs hubs;
 	
-	
-	
-	
+
 	
 	
 	public int getCarId() {

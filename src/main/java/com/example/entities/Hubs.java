@@ -30,12 +30,6 @@ public class Hubs {
 	private Airport airport;
     
     // = = = = = = = = = = = = = = = = = = 
-
-    
-    // one hub will have multiple cars 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "hubId", referencedColumnName="hubId")
-    private Set<Car> cars; 
     
     
     
@@ -106,14 +100,6 @@ public class Hubs {
 
 	public void setAirport(Airport airport) {
 		this.airport = airport;
-	}
-
-	public Set<Car> getCars() {
-		return cars;
-	}
-
-	public void setCars(Set<Car> cars) {
-		this.cars = cars;
 	}
 
 	public Set<Users> getUsers() {

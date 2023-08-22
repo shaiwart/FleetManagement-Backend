@@ -24,18 +24,11 @@ public class CarController {
 	    return carManager.getCarsByCategory(hubId, categoryId); 
 	}
 	
+	// get all the cars present in a hub by hubId
+	@GetMapping(value = "api/cars/{hubId}")
+	public List<Car> getCarsByHub(@PathVariable int hubId) {
+	    return carManager.getCarsByHub(hubId); 
+	}
 	
-	
-	
-	
-	// ======= NOT REQUIRED ========= // 
-	
-	
-	// FOR STAFF 
-	// get all the cars from a hub 
-	
-	
-
-
 	
 }
