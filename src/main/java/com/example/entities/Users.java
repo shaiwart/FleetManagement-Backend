@@ -39,19 +39,19 @@ public class Users {
     private int isEmployee;
 
     
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) // lazy earger kuch bhi karo chalega, if your are usign @jsonIgnoreProperties 
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER) // lazy earger kuch bhi karo chalega, if your are usign @jsonIgnoreProperties 
     @JoinColumn(name = "stateId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 //    @JsonIgnore
     private State state;
     
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "cityId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 //    @JsonIgnore
     private City city; 
     
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "hubId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 //    @JsonIgnore
