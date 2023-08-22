@@ -39,7 +39,7 @@ public class Users {
     private int isEmployee;
 
     
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) // lazy earger kuch bhi karo chalega, if your are usign @jsonIgnoreProperties 
     @JoinColumn(name = "stateId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 //    @JsonIgnore

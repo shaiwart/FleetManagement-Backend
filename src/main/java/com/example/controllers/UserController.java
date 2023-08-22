@@ -27,9 +27,7 @@ public class UserController {
     
     // POST record in user table 
     @PostMapping("/api/user/add")
-	public void addUser(@RequestBody  Users user)
-	{
-		System.out.println(user); 
+	public void addUser(@RequestBody  Users user) {
 		userService.addUser(user); 
 	}
 }
