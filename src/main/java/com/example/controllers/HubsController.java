@@ -28,14 +28,10 @@ public class HubsController {
     	return hubsService.getHubsByCityId(cityId); 
     }
     
-    
-    
-    
-    // ======= not required ========= //  
-    
-    // need update --> // need -> get all the cars from that hub 
-    @GetMapping("/api/hub/{hubId}")
-    public Hubs getHubById(@PathVariable int hubId) {
-    	return hubsService.getHubById(hubId);
+    // get one hub by airportId 
+    @GetMapping("/api/hub/{airportId}")
+    public Hubs getHubByAirportId(@PathVariable int airportId) {
+    	return hubsService.getHubByAirportId(airportId); 
     }
+    
 }

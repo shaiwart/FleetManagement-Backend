@@ -34,14 +34,6 @@ public class City {
 //    @JoinColumn(name = "customerCityId", referencedColumnName="cityId")
     private Set<Booking> bookings; 
     
-//  @OneToMany(mappedBy =  "state") // cascade = CascadeType.ALL 
-//  @JoinColumn(name = "customerStateId", referencedColumnName="stateId")
-//  private Set<Booking> bookings; 
-    
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "cityId", referencedColumnName="cityId")
-    private Set<Airport> airports;
-    
     
    
 
@@ -80,14 +72,6 @@ public class City {
 	public void setBookings(Set<Booking> bookings) {
 		this.bookings = bookings;
 	}
-
-	public Set<Airport> getAirports() {
-		return airports;
-	}
-
-	public void setAirports(Set<Airport> airports) {
-		this.airports = airports;
-	} 
     
     
     

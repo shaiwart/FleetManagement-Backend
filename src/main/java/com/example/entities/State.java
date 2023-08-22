@@ -20,11 +20,6 @@ public class State {
     
     @OneToMany(mappedBy =  "state") 
     private Set<Booking> bookings; 
-    
-    
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "stateId", referencedColumnName="stateId")
-    private Set<Airport> airports;
 
 
 	public int getStateId() {
@@ -59,17 +54,6 @@ public class State {
 	public void setBookings(Set<Booking> bookings) {
 		this.bookings = bookings;
 	}
-
-
-	public Set<Airport> getAirports() {
-		return airports;
-	}
-
-
-	public void setAirports(Set<Airport> airports) {
-		this.airports = airports;
-	} 
-    
     
     
 }

@@ -2,6 +2,8 @@ package com.example.services;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.PathVariable;
+
 import com.example.entities.Hubs;
 
 public interface HubsService {
@@ -10,4 +12,6 @@ public interface HubsService {
     
     
     List<Hubs> getHubsByCityId(int cityId); 
+    
+    public Hubs getHubByAirportId(int airportId);  
 }

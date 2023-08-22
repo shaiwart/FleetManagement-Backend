@@ -17,24 +17,7 @@ public class Airport {
 	
 	private int airportCode;
 	
-	private String airportName;
-	
-	
-
-    
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "hubId")
-	private Hubs hub;
-	
-	
-
-	// FK-> state, city, hub-> one to one 
-	
-	
-	
-	
-	
-	
+	private String airportName; 
 	
 	
 	public int getAirportId() {
@@ -51,15 +34,6 @@ public class Airport {
 
 	public void setAirportName(String airportName) {
 		this.airportName = airportName;
-	}
-
-
-	public Hubs getHub() {
-		return hub;
-	}
-
-	public void setHub(Hubs hub) {
-		this.hub = hub;
 	}
 
 	public int getAirportCode() {

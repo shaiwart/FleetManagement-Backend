@@ -21,10 +21,15 @@ public class Hubs {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "cityId")
     @JsonIgnore
-    private City city;
+    private City city; 
     
     
-    // = = = = = = = = = 
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "airportId")
+	@JsonIgnore
+	private Airport airport;
+    
+    // = = = = = = = = = = = = = = = = = = 
 
     
     // one hub will have multiple cars 
@@ -47,44 +52,94 @@ public class Hubs {
 //    @JsonManagedReference
     @OneToMany(mappedBy = "dropHub")
 //    @JoinColumn(name = "dropHubId", referencedColumnName="hubId")
-    private Set<Booking> bookingsDrop; 
-    
-    
-    
-    
-    
-    
-    
-    public int getHubId() {
-        return hubId;
-    }
-    
-    
-    public String getHubName() {
-        return hubName;
-    }
-
-    public void setHubName(String hubName) {
-        this.hubName = hubName;
-    }
-
-    public String getContactNumber() {
-        return contactNumber;
-    }
-
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    private Set<Booking> bookingsDrop;
 
     
     
+    
+    
+    
+    
+	public int getHubId() {
+		return hubId;
+	}
+
+	public void setHubId(int hubId) {
+		this.hubId = hubId;
+	}
+
+	public String getHubName() {
+		return hubName;
+	}
+
+	public void setHubName(String hubName) {
+		this.hubName = hubName;
+	}
+
+	public String getContactNumber() {
+		return contactNumber;
+	}
+
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+	public Airport getAirport() {
+		return airport;
+	}
+
+	public void setAirport(Airport airport) {
+		this.airport = airport;
+	}
+
+	public Set<Car> getCars() {
+		return cars;
+	}
+
+	public void setCars(Set<Car> cars) {
+		this.cars = cars;
+	}
+
+	public Set<Users> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<Users> users) {
+		this.users = users;
+	}
+
+	public Set<Booking> getBookingsPickup() {
+		return bookingsPickup;
+	}
+
+	public void setBookingsPickup(Set<Booking> bookingsPickup) {
+		this.bookingsPickup = bookingsPickup;
+	}
+
+	public Set<Booking> getBookingsDrop() {
+		return bookingsDrop;
+	}
+
+	public void setBookingsDrop(Set<Booking> bookingsDrop) {
+		this.bookingsDrop = bookingsDrop;
+	} 
+    
+   
     
 }

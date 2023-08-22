@@ -27,4 +27,9 @@ public class HubsServiceImpl implements HubsService {
 	public List<Hubs> getHubsByCityId(int cityId) {
 		return hubsRepository.getHubsByCityId(cityId); 
 	}
+
+	@Override
+	public Hubs getHubByAirportId(int airportId) {
+		return hubsRepository.getHubsByAirportId(airportId); 
+	}
 }
