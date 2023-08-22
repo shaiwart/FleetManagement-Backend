@@ -2,7 +2,7 @@ package com.example.entities;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 
@@ -19,7 +19,7 @@ public class Users {
     private String mobileNumber;
     
     @Column(unique = true)
-    private String mailId;
+    private String emailId;
     private String address;
     private String password;
     
@@ -38,8 +38,26 @@ public class Users {
     private int isEmployee;
 
     
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "stateId")
+    @JsonIgnore
+    private State state;
     
-//    @JsonManagedReference
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "cityId")
+    @JsonIgnore
+    private City city; 
+    
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "hubId")
+    @JsonIgnore
+    private Hubs hubs;
+    
+    
+    
+    
+    // = = = = = = 
+    
     @OneToMany(mappedBy = "user") 
     private List<Booking> bookings; 
     
@@ -72,12 +90,12 @@ public class Users {
 		this.mobileNumber = mobileNumber;
 	}
 
-	public String getMailId() {
-		return mailId;
+	public String getEmailId() {
+		return emailId;
 	}
 
-	public void setMailId(String mailId) {
-		this.mailId = mailId;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 	public String getAddress() {
@@ -134,6 +152,51 @@ public class Users {
 
 	public void setIsEmployee(int isEmployee) {
 		this.isEmployee = isEmployee;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+	public Hubs getHubs() {
+		return hubs;
+	}
+
+	public void setHubs(Hubs hubs) {
+		this.hubs = hubs;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	@Override
+	public String toString() {
+		return "Users [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", mobileNumber="
+				+ mobileNumber + ", emailId=" + emailId + ", address=" + address + ", password=" + password + ", dlNo="
+				+ dlNo + ", aadharNo=" + aadharNo + ", passportNo=" + passportNo + ", isReigsteredUser="
+				+ isReigsteredUser + ", isEmployee=" + isEmployee + ", state=" + state + ", city=" + city + ", hubs="
+				+ hubs + ", bookings=" + bookings + "]";
 	}
 
 

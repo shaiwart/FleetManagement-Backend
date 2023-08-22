@@ -33,11 +33,6 @@ public class Hubs {
     
     
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "empHubId", referencedColumnName="hubId")
-    private Set<Users> users; 
-    
-    
 //    @JsonManagedReference
     @OneToMany(mappedBy = "pickupHub")
 //    @JoinColumn(name = "pickupHubId", referencedColumnName="hubId")
@@ -100,14 +95,6 @@ public class Hubs {
 
 	public void setAirport(Airport airport) {
 		this.airport = airport;
-	}
-
-	public Set<Users> getUsers() {
-		return users;
-	}
-
-	public void setUsers(Set<Users> users) {
-		this.users = users;
 	}
 
 	public Set<Booking> getBookingsPickup() {

@@ -15,4 +15,18 @@ Booking page
 - When we try to serialize an instance of “Item,” Jackson will throw a JsonMappingException exception => https://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion
 - https://stackoverflow.com/questions/36034983/stackoverflow-exception-while-using-hibernate-and-jackson-on-bi-directional-obje 
 - abc 
+
+
+Car 
+- UPDATE - isAvailable = 0/1 
+- UPDATE - fuelStatus 
+
+
+
+
+
+User 
+- POST - put all details of a user into user table 
+- GET - get user by emailId + password 
+- UPDATE - 
  

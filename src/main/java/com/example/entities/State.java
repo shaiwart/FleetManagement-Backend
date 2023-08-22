@@ -14,10 +14,6 @@ public class State {
     private String stateName;
     
     
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "stateId", referencedColumnName="stateId")
-    private Set<Users> users; 
-    
     @OneToMany(mappedBy =  "state") 
     private Set<Booking> bookings; 
 
@@ -34,15 +30,6 @@ public class State {
 
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
-	}
-
-	public Set<Users> getUsers() {
-		return users;
-	}
-
-
-	public void setUsers(Set<Users> users) {
-		this.users = users;
 	}
 
 

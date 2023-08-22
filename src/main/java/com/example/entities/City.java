@@ -24,11 +24,6 @@ public class City {
    
     
     
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "cityId", referencedColumnName="cityId")
-    private Set<Users> users; 
-    
-    
 //    @JsonManagedReference
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy =  "city")
 //    @JoinColumn(name = "customerCityId", referencedColumnName="cityId")
@@ -55,14 +50,6 @@ public class City {
 
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
-	}
-	
-	public Set<Users> getUsers() {
-		return users;
-	}
-
-	public void setUsers(Set<Users> users) {
-		this.users = users;
 	}
 
 	public Set<Booking> getBookings() {
