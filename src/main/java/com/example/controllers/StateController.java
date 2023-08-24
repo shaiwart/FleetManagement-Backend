@@ -16,7 +16,7 @@ public class StateController {
     @Autowired
     private StateService stateService; 
 
-    // No need -> can dump later 
+    // get all the states 
     @GetMapping("/api/states")
     public List<State> getAllStates() {
         return stateService.getAllStates();

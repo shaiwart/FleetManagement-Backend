@@ -30,6 +30,11 @@ public class UserController {
     @CrossOrigin
     @PostMapping("/api/user/add")
 	public void addUser(@RequestBody  Users user) {
+    	
+//    	User temp = userService.getUserByEmailId(user.getEmailId()); //  
+    	// if temp is NULL -> ye user nahi present hai. And Go ahead. 
+    	// if temp is not null means user is already there in our user table. 
+    	
 		userService.addUser(user); 
 	}
 }

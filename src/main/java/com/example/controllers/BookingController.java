@@ -38,6 +38,11 @@ public class BookingController {
 //		
 //		System.out.println(booking); 
 		
+//		Booking temp = bookingService.getBookingByEmailId(booking.getEmailId());  
+//		if(temp == null) {
+//			
+//		}
+		
 		bookingService.save(booking);  
 	}
 	
