@@ -41,7 +41,7 @@ public class Booking {
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "userId")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-	private Users user; 
+	private Users user;  
 	
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)

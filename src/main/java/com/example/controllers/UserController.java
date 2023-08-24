@@ -18,6 +18,7 @@ public class UserController {
     private UserService userService;
 
     // get user by email + password 
+    @CrossOrigin
     @GetMapping("/api/user/{emailId}/{password}") 
     public Users getUserByEmailIdAndPass(@PathVariable String emailId, @PathVariable String password) {
         var temp = userService.getUserByEmailIdAndPass(emailId, password);
@@ -26,6 +27,7 @@ public class UserController {
     }
     
     // POST record in user table 
+    @CrossOrigin
     @PostMapping("/api/user/add")
 	public void addUser(@RequestBody  Users user) {
 		userService.addUser(user); 

@@ -15,7 +15,7 @@ public class CityController {
     private CityService cityService;
 
     
-    // NO need -> can dump later => get all cities by stateId 
+  
     @CrossOrigin
     @GetMapping("/api/cities/{stateId}")
     public List<City> getAllCities(@PathVariable int stateId) {

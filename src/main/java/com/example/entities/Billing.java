@@ -3,11 +3,16 @@ package com.example.entities;
 
 import java.time.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -35,28 +40,49 @@ public class Billing {
 	
 	private String customerPassNo;
 	
-	@OneToOne
-    @JoinColumn(name = "categoryId")
-    private CarCategory carCategory;
+//	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
+//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+//    private CarCategory categoryId; 
 	
-	@OneToOne
-    @JoinColumn(name = "carId")
-    private Car car;
+	private int categoryId; 
 	
-	@OneToOne
-    @JoinColumn(name = "bookingId")
+	
+	
+	
+	
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	@OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "carId")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	private Car car;
+	
+	@OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "bookingId")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 	private Booking booking;
 	
 	
 	
 	
-	@OneToOne
-    @JoinColumn(name = "pickupHubId")
-	private Hubs hubPickup;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "pickupHub_hubId", referencedColumnName = "hubId")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private Hubs pickupHub; 
 	
-	@OneToOne
-    @JoinColumn(name = "dropHubId")
-	private Hubs hubDrop;
+
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "dropHub_hubId", referencedColumnName = "hubId")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private Hubs dropHub;
 
 	public int getBillingId() {
 		return billingId;
@@ -138,13 +164,7 @@ public class Billing {
 		this.customerPassNo = customerPassNo;
 	}
 
-	public CarCategory getCarCategory() {
-		return carCategory;
-	}
-
-	public void setCarCategory(CarCategory carCategory) {
-		this.carCategory = carCategory;
-	}
+	
 
 	public Car getCar() {
 		return car;
@@ -162,24 +182,33 @@ public class Billing {
 		this.booking = booking;
 	}
 
-	public Hubs getHubPickup() {
-		return hubPickup;
+	
+
+	public Hubs getPickupHub() {
+		return pickupHub;
 	}
 
-	public void setHubPickup(Hubs hubPickup) {
-		this.hubPickup = hubPickup;
+	public void setPickupHub(Hubs pickupHub) {
+		this.pickupHub = pickupHub;
 	}
 
-	public Hubs getHubDrop() {
-		return hubDrop;
+	public Hubs getDropHub() {
+		return dropHub;
 	}
 
-	public void setHubDrop(Hubs hubDrop) {
-		this.hubDrop = hubDrop;
+	public void setDropHub(Hubs dropHub) {
+		this.dropHub = dropHub;
 	}
+
 	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Billing [billingId=" + billingId + ", billingName=" + billingName + ", billAmount=" + billAmount
+				+ ", fuelStatus=" + fuelStatus + ", startDate=" + startDate + ", endDate=" + endDate + ", userEmailId="
+				+ userEmailId + ", customerMobileNo=" + customerMobileNo + ", customerAadharNo=" + customerAadharNo
+				+ ", customerPassNo=" + customerPassNo + ", categoryId=" + categoryId + ", car=" + car + ", booking="
+				+ booking + ", pickupHub=" + pickupHub + ", dropHub=" + dropHub + "]";
+	}
 	
 }

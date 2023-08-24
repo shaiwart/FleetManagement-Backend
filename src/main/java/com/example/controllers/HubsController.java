@@ -16,6 +16,7 @@ public class HubsController {
 
     
     // Get all the hubs 
+    @CrossOrigin
     @GetMapping("/api/hubs")
     public List<Hubs> getAllHubs() {
         return hubsService.getAllHubs();
@@ -23,6 +24,7 @@ public class HubsController {
 
     
     // Get hubs by cityId 
+    @CrossOrigin
     @GetMapping("/api/hubs/{cityId}")
     public List<Hubs> getHubsByCityId(@PathVariable int cityId) {
     	return hubsService.getHubsByCityId(cityId); 
