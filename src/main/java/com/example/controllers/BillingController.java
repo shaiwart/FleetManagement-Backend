@@ -15,7 +15,7 @@ public class BillingController {
     private  BillingService billingService;
 
     
-    
+    // add a record in billing table 
 	@CrossOrigin
     @PostMapping("/api/addbilling")
     public void save(@RequestBody Billing billing)
@@ -23,7 +23,7 @@ public class BillingController {
     	billingService.save(billing);
     }
     
-    
+    // get a single billing record by bookingId 
 	@CrossOrigin
     @GetMapping("/api/billing/by-bookingid/{bookingId}") 
 	public Billing getBillingByBookingId(@PathVariable int bookingId) { 
