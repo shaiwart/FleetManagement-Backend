@@ -15,7 +15,7 @@ public class CityController {
     private CityService cityService;
 
     
-  
+    // get all the cities by stateId 
     @CrossOrigin
     @GetMapping("/api/cities/{stateId}")
     public List<City> getAllCities(@PathVariable int stateId) {
@@ -24,6 +24,7 @@ public class CityController {
     
     
     // get hubs by city id 
+    @CrossOrigin
     @GetMapping("/api/city/{cityId}")
     public City getCityById(@PathVariable int cityId) {
     	return cityService.getCityById(cityId);
