@@ -14,12 +14,14 @@ public class AirportController {
     private AirportService airportService;
 
     // get all airport 
+    @CrossOrigin
     @GetMapping("/api/airports")
     public List<Airport> getAllAirports() {
         return airportService.getAllAirports();
     }
     
     // 
+    @CrossOrigin
     @GetMapping("/api/airport/{airportId}")
     public Airport getAirportById(@PathVariable int airportId) {
     	return airportService.getAirportById(airportId);

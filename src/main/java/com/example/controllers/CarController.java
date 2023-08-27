@@ -19,7 +19,7 @@ public class CarController {
 	
 	// FOR STAFF 
 	// get cars by hubid & by cataegory which are vaialable  
-	@GetMapping(value = "/api/cars/{hubId}/{categoryId}")
+	@GetMapping(value = "/api/cars/{hubId}/{categoryId}") 
 	public List<Car> getCarsByHubAndCategory(@PathVariable int hubId, @PathVariable int categoryId) {
 	    return carManager.getCarsByCategory(hubId, categoryId); 
 	}

@@ -25,7 +25,7 @@ public class HubsController {
     
     // Get hubs by cityId 
     @CrossOrigin(origins = "*")
-    @GetMapping("/api/hubs/{cityId}")
+    @GetMapping("/api/hubs/{cityId}") 
     public List<Hubs> getHubsByCityId(@PathVariable int cityId) {
     	return hubsService.getHubsByCityId(cityId); 
     }

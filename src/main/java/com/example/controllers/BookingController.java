@@ -21,6 +21,7 @@ public class BookingController {
 	
 	
 	// add record into booking table 
+	@CrossOrigin
 	@PostMapping("/api/addbooking")
 	public void save(@RequestBody  Booking booking) {
 
@@ -48,6 +49,7 @@ public class BookingController {
 	
 	
 	// get record from booking table BY PHONE NUMBER // will give latest record of a user 
+	@CrossOrigin
 	@GetMapping("/api/booking/by-phone/{phoneNumber}")
 	public Booking getBookingByPhoneNumber(@PathVariable String phoneNumber) { 
 		var abc = bookingService.getBookingByPhoneNumber(phoneNumber); 
@@ -56,6 +58,7 @@ public class BookingController {
 	
 	
 	// get record from booking table BY EMAIL ID // will give latest record of a user 
+	@CrossOrigin
 	@GetMapping("/api/booking/by-email/{emailId}")
 	public Booking getBookingByEmailId(@PathVariable String emailId) { 
 		return bookingService.getBookingByEmailId(emailId); 
