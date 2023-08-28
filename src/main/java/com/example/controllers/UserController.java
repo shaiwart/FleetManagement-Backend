@@ -12,13 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     // get user by email + password 
-    @CrossOrigin
     @GetMapping("/api/user/{emailId}/{password}") 
     public Users getUserByEmailIdAndPass(@PathVariable String emailId, @PathVariable String password) {
         var temp = userService.getUserByEmailIdAndPass(emailId, password);
@@ -27,7 +27,6 @@ public class UserController {
     }
     
     // POST record in user table 
-    @CrossOrigin
     @PostMapping("/api/user/add")
 	public void addUser(@RequestBody  Users user) {
     	

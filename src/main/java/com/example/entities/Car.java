@@ -16,7 +16,7 @@ public class Car {
 	private int capacity;
 	private String fuelType;
 	private double milage;
-	private char color;
+	private String color;  
 	private int availabiity;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
