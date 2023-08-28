@@ -294,6 +294,49 @@ VALUES
 
 
 
+UPDATE car_category
+SET
+    category_name = CASE
+        WHEN category_id = 1 THEN 'Economy'
+        WHEN category_id = 2 THEN 'Compact'
+        WHEN category_id = 3 THEN 'Midsize'
+        WHEN category_id = 4 THEN 'SUV'
+        WHEN category_id = 5 THEN 'Luxury'
+    END,
+    daily_rates = CASE
+        WHEN category_id = 1 THEN 45.99
+        WHEN category_id = 2 THEN 55.99
+        WHEN category_id = 3 THEN 65.99
+        WHEN category_id = 4 THEN 75.99
+        WHEN category_id = 5 THEN 99.99
+    END,
+    img_path = CASE
+        WHEN category_id = 1 THEN '/Images/Car/economy_car.jpg'
+        WHEN category_id = 2 THEN '/Images/Car/compact_car.jpg'
+        WHEN category_id = 3 THEN '/Images/Car/midsize_car.jpg'
+        WHEN category_id = 4 THEN '/Images/Car/suv1.jpg'
+        WHEN category_id = 5 THEN '/Images/Car/luxury_car.jpg'
+    END,
+    monthly_rates = CASE
+        WHEN category_id = 1 THEN 799.99
+        WHEN category_id = 2 THEN 899.99
+        WHEN category_id = 3 THEN 999.99
+        WHEN category_id = 4 THEN 1199.99
+        WHEN category_id = 5 THEN 1699.99
+    END,
+    weekly_rates = CASE
+        WHEN category_id = 1 THEN 249.99
+        WHEN category_id = 2 THEN 279.99
+        WHEN category_id = 3 THEN 299.99
+        WHEN category_id = 4 THEN 349.99
+        WHEN category_id = 5 THEN 499.99
+    END
+WHERE category_id IN (1, 2, 3, 4, 5);
+
+
+
+
+
 //Billing Table Entry Json
 
 {
