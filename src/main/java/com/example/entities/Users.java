@@ -33,7 +33,7 @@ public class Users {
     private long aadharNo;
     
     @Column(unique = true)
-    private long passportNo;
+    private long passportNo; 
     
     
     private int isRegisteredUser;
@@ -44,7 +44,7 @@ public class Users {
     @JoinColumn(name = "stateId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 //    @JsonIgnore
-    private State state;
+    private State state; 
     
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "cityId")
@@ -55,8 +55,8 @@ public class Users {
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "hubId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-//    @JsonIgnore
-    private Hubs hubs;
+//    @JsonIgnore 
+    private Hubs hubs; 
     
     
     

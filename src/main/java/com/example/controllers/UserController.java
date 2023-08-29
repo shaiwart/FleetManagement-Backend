@@ -22,11 +22,22 @@ public class UserController {
     @GetMapping("/api/user/{emailId}/{password}") 
     public Users getUserByEmailIdAndPass(@PathVariable String emailId, @PathVariable String password) {
         var temp = userService.getUserByEmailIdAndPass(emailId, password);
-        System.out.println(temp); 
+//        System.out.println(temp); 
+    	return temp;  
+    } 
+    
+    
+    @GetMapping("/api/user/{emailId}") 
+    public Users getUserByEmailId(@PathVariable String emailId) {
+        var temp = userService.getUserByEmailId(emailId);
+//        System.out.println(temp); 
     	return temp;  
     }
     
+    
+    
     // POST record in user table 
+    @CrossOrigin
     @PostMapping("/api/user/add")
 	public void addUser(@RequestBody  Users user) {
     	

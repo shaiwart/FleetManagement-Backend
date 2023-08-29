@@ -17,7 +17,7 @@ public class Car {
 	private String fuelType;
 	private double milage;
 	private String color;  
-	private int availabiity;
+	private int availabiity; 
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "categoryId")
@@ -70,10 +70,10 @@ public class Car {
 	public void setMilage(double milage) {
 		this.milage = milage;
 	}
-	public char getColor() {
+	public String getColor() {
 		return color;
 	}
-	public void setColor(char color) {
+	public void setColor(String color) {
 		this.color = color;
 	}
 	
@@ -82,6 +82,12 @@ public class Car {
 	}
 	public void setAvailabiity(int availabiity) {
 		this.availabiity = availabiity;
+	}
+	@Override
+	public String toString() {
+		return "Car [carId=" + carId + ", carName=" + carName + ", carNumberplate=" + carNumberplate + ", capacity="
+				+ capacity + ", fuelType=" + fuelType + ", milage=" + milage + ", color=" + color + ", availabiity="
+				+ availabiity + ", category=" + category + ", hubs=" + hubs + "]";
 	}
 	
 	

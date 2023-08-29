@@ -38,10 +38,10 @@ public class Booking {
 
 	
 
-	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-	@JoinColumn(name = "userId")
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-	private Users user;  
+//	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "userId")
+//	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	private int user; // just a key will be there , not relation   
 	
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
@@ -135,12 +135,13 @@ public class Booking {
 	public void setdLNumber(String dLNumber) {
 		this.dLNumber = dLNumber;
 	}
+	
 
-	public Users getUser() {
+	public Integer getUser() {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public void setUser(Integer user) {
 		this.user = user;
 	}
 

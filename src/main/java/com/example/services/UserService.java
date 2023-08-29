@@ -8,5 +8,7 @@ public interface UserService {
 	
 	public Users getUserByEmailIdAndPass(String emailId, String password);  
 	
-	public void addUser(Users user); 
+	public void addUser(Users user);  
+	
+	public Users getUserByEmailId(String emailId);  
 }
