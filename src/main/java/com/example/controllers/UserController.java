@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import com.example.dto.LoginRequestDTO;
 import com.example.entities.Airport;
 import com.example.entities.Booking;
 import com.example.entities.Users;
@@ -32,8 +33,18 @@ public class UserController {
         var temp = userService.getUserByEmailId(emailId);
 //        System.out.println(temp); 
     	return temp;  
-    }
+    } 
     
+    
+    @CrossOrigin
+    @PostMapping("/api/user/login")
+	public Users userLogin(@RequestBody  LoginRequestDTO loginRequest) {
+    	String email = loginRequest.getEmail();
+        String password = loginRequest.getPassword(); 
+        
+        return userService.userLogin(email, password);  
+        
+    }
     
     
     // POST record in user table 
