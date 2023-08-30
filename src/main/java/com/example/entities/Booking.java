@@ -41,19 +41,19 @@ public class Booking {
 //	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //	@JoinColumn(name = "userId")
 //	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-	private int user; // just a key will be there , not relation   
+	private int userId; // just a key will be there , not relation   
 	
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "stateId")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-	private State state; 
+	private State state; // user ka city 
 	
 
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "cityId")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-	private City city; 
+	private City city; // user ka state 
 
 	
 //	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
@@ -62,22 +62,22 @@ public class Booking {
 //	private Hubs pickupHub; 
 	
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "pickupHub_hubId", referencedColumnName = "hubId")
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Hubs pickupHub; 
+//	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "pickupHub_hubId", referencedColumnName = "hubId")
+//	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private int pickupHubId; 
 	
 
-	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-	@JoinColumn(name = "dropHub_hubId", referencedColumnName = "hubId")
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Hubs dropHub; 
+//	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "dropHub_hubId", referencedColumnName = "hubId")
+//	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private int dropHubId; 
 	
 	
 //	@JoinColumn(name = "sender_uuid", 
 //            referencedColumnName = "uuid", // this uuid is in the User entity
 //            insertable = false, updatable = false) 
-//	private User sender;
+//	private User sender; 
 	
 
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
@@ -137,12 +137,14 @@ public class Booking {
 	}
 	
 
-	public Integer getUser() {
-		return user;
+	
+
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser(Integer user) {
-		this.user = user;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public State getState() {
@@ -159,22 +161,6 @@ public class Booking {
 
 	public void setCity(City city) {
 		this.city = city;
-	}
-
-	public Hubs getPickupHub() {
-		return pickupHub;
-	}
-
-	public void setPickupHub(Hubs pickupHub) {
-		this.pickupHub = pickupHub;
-	}
-
-	public Hubs getDropHub() {
-		return dropHub;
-	}
-
-	public void setDropHub(Hubs dropHub) {
-		this.dropHub = dropHub;
 	}
 
 	public void setBookingId(int bookingId) {
@@ -215,17 +201,30 @@ public class Booking {
 		this.passportNo = passportNo;
 	}
 
+	public int getPickupHubId() {
+		return pickupHubId;
+	}
+
+	public void setPickupHubId(int pickupHubId) {
+		this.pickupHubId = pickupHubId;
+	}
+
+	public int getDropHubId() {
+		return dropHubId;
+	}
+
+	public void setDropHubId(int dropHubId) {
+		this.dropHubId = dropHubId;
+	}
+
 	@Override
 	public String toString() {
 		return "Booking [bookingId=" + bookingId + ", bookingDateAndTime=" + bookingDateAndTime + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", mobileNumber=" + mobileNumber + ", emailId=" + emailId
-				+ ", dLNumber=" + dLNumber + ", aadharNo=" + aadharNo + ", passportNo=" + passportNo + ", user=" + user
-				+ ", state=" + state + ", city=" + city + ", pickupHub=" + pickupHub + ", dropHub=" + dropHub
-				+ ", category=" + category + "]";
+				+ ", dLNumber=" + dLNumber + ", aadharNo=" + aadharNo + ", passportNo=" + passportNo + ", userId="
+				+ userId + ", state=" + state + ", city=" + city + ", pickupHubId=" + pickupHubId + ", dropHubId="
+				+ dropHubId + ", category=" + category + "]";
 	}
-
-	
-	
 	
 
 }
