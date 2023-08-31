@@ -46,6 +46,16 @@ public class UserController {
         
     }
     
+    @CrossOrigin
+    @PostMapping("/api/employee/login")
+	public Users employeeLogin(@RequestBody  LoginRequestDTO loginRequest) {
+    	String email = loginRequest.getEmail();
+        String password = loginRequest.getPassword(); 
+        
+        return userService.employeeLogin(email, password);  
+        
+    }
+    
     
     // POST record in user table 
     @CrossOrigin

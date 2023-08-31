@@ -13,4 +13,8 @@ public interface UserService {
 	public Users getUserByEmailId(String emailId);  
 	
 	public Users userLogin(String email, String password); 
+	
+	public Users employeeLogin(String email, String password); 
+	
+	
 }

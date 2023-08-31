@@ -32,4 +32,9 @@ public class UserServiceImpl implements UserService {
 		return userRepository.userLogin(email, password);  
 	}
 
+	@Override
+	public Users employeeLogin(String email, String password) {
+		return userRepository.employeeLogin(email, password); 
+	}
+
 }

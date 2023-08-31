@@ -24,4 +24,8 @@ public interface UserRepository  extends JpaRepository<Users, Integer> {
 	@Query(value = "select * from users where email_id = :emailId and password = :password and is_employee=0", nativeQuery = true)
 	public Users userLogin(@Param("emailId") String email, @Param("password") String password); 
 	
+	
+	@Query(value = "select * from users where email_id = :emailId and password = :password and is_employee=1", nativeQuery = true)
+	public Users employeeLogin(@Param("emailId") String email, @Param("password") String password); 
+	
 }
