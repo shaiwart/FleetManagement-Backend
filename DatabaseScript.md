@@ -187,18 +187,19 @@ VALUES (1, 4, 'Mercedes S-Class', 111222, 'B', 'Petrol', 14.0, 4, 5);
 
 
 
-INSERT INTO users (aadhar_no, address, dl_no, first_name, is_employee, is_registered_user, last_name, email_id, mobile_number, passport_no, password, state_id, hub_id, city_id)
-VALUES
-    (1234567890, '123 Main St', 'DL12345', 'John', 1, 1, 'Doe', 'john@example.com', '555-123-4567', 9876543210, 'password1', 1, 1, 2101),
-    (9876543210, '456 Elm St', 'DL54321', 'Jane', 0, 1, 'Smith', 'jane@example.com', '555-987-6543', 1234567890, 'password2', 2, 2, 2102),
-    (5555555555, '789 Oak St', 'DL67890', 'Alice', 1, 1, 'Johnson', 'alice@example.com', '555-555-5555', 5555555555, 'password3', 3, 3, 2103),
-    (9999999999, '101 Pine St', 'DL00001', 'Bob', 0, 0, 'Brown', 'bob@example.com', '555-999-9999', 1111111111, 'password4', 4, 4, 2104),
-    (2222222222, '202 Cedar St', 'DL22222', 'Eva', 1, 1, 'Lee', 'eva@example.com', '555-222-2222', 2222222222, 'password5', 1, 2, 2105),
-    (7777777777, '303 Birch St', 'DL77777', 'David', 0, 1, 'Wong', 'david@example.com', '555-777-7777', 7777777777, 'password6', 2, 1, 2106),
-    (8888888888, '404 Maple St', 'DL88888', 'Olivia', 1, 0, 'Taylor', 'olivia@example.com', '555-888-8888', 8888888888, 'password7', 3, 3, 2107),
-    (3333333333, '505 Redwood St', 'DL33333', 'Michael', 1, 1, 'Anderson', 'michael@example.com', '555-333-3333', 3333333333, 'password8', 4, 2, 2108),
-    (6666666666, '606 Spruce St', 'DL66666', 'Sophia', 0, 0, 'Martinez', 'sophia@example.com', '555-666-6666', 6666666666, 'password9', 1, 1, 2109),
-    (4444444444, '707 Walnut St', 'DL44444', 'James', 1, 1, 'Garcia', 'james@example.com', '555-444-4444', 4444444444, 'password10', 2, 2, 2110);
+INSERT INTO users (aadhar_no, address, dl_no, first_name, is_employee, last_name, email_id, mobile_number, passport_no, password, state_id, hub_id, city_id)
+VALUES 
+    (1234567890, '123 Main St', 'DL12345', 'John', 1, 'Doe', 'john@example.com', '555-123-4567', 9876543210, 'password1', 1, 1, 2101),
+    (9876543210, '456 Elm St', 'DL54321', 'Jane', 0, 'Smith', 'jane@example.com', '555-987-6543', 1234567890, 'password2', 2, null, 2102),
+    (5555555555, '789 Oak St', 'DL67890', 'Alice', 0, 'Johnson', 'alice@example.com', '555-555-5555', 5555555555, 'password3', 3, null, 2103),
+    (9999999999, '101 Pine St', 'DL00001', 'Bob', 0, 'Brown', 'bob@example.com', '555-999-9999', 1111111111, 'password4', 4, null, 2104),
+    (2222222222, '202 Cedar St', 'DL22222', 'Eva', 0, 'Lee', 'eva@example.com', '555-222-2222', 2222222222, 'password5', 1, null, 2105),
+    (7777777777, '303 Birch St', 'DL77777', 'David', 0, 'Wong', 'david@example.com', '555-777-7777', 7777777777, 'password6', 2, null, 2106),
+    (8888888888, '404 Maple St', 'DL88888', 'Olivia', 1, 'Taylor', 'olivia@example.com', '555-888-8888', 8888888888, 'password7', 3, 3, 2107),
+    (3333333333, '505 Redwood St', 'DL33333', 'Michael', 1, 'Anderson', 'michael@example.com', '555-333-3333', 3333333333, 'password8', 4, 2, 2108),
+    (6666666666, '606 Spruce St', 'DL66666', 'Sophia', 0, 'Martinez', 'sophia@example.com', '555-666-6666', 6666666666, 'password9', 1, null, 2109),
+    (4444444444, '707 Walnut St', 'DL44444', 'James', 0, 'Garcia', 'james@example.com', '555-444-4444', 4444444444, 'password10', 2, null, 2110);
+
 
 
 

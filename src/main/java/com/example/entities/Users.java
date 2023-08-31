@@ -30,13 +30,11 @@ public class Users {
     
     
     @Column(unique = true, length = 12) 
-    private long aadharNo;
+    private String aadharNo;
     
     @Column(unique = true)
-    private long passportNo; 
-    
-    
-    private int isRegisteredUser;
+    private String passportNo; 
+   
     private int isEmployee;
 
     
@@ -56,15 +54,18 @@ public class Users {
     @JoinColumn(name = "hubId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 //    @JsonIgnore 
-    private Hubs hubs; 
+    private Hubs hubs;
+
     
     
-    
-    
-    // = = = = = = = = = = =
+ // = = = = = = = = = = =
     
 	public int getUserId() {
 		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getFirstName() {
@@ -123,28 +124,20 @@ public class Users {
 		this.dlNo = dlNo;
 	}
 
-	public long getAadharNo() {
+	public String getAadharNo() {
 		return aadharNo;
 	}
 
-	public void setAadharNo(long aadharNo) {
+	public void setAadharNo(String aadharNo) {
 		this.aadharNo = aadharNo;
 	}
 
-	public long getPassportNo() {
+	public String getPassportNo() {
 		return passportNo;
 	}
 
-	public void setPassportNo(long passportNo) {
+	public void setPassportNo(String passportNo) {
 		this.passportNo = passportNo;
-	}
-
-	public int getIsRegisteredUser() {
-		return isRegisteredUser;
-	}
-
-	public void setIsRegisteredUser(int isRegisteredUser) {
-		this.isRegisteredUser = isRegisteredUser;
 	}
 
 	public int getIsEmployee() {
@@ -179,18 +172,21 @@ public class Users {
 		this.hubs = hubs;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
 	@Override
 	public String toString() {
 		return "Users [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", mobileNumber="
 				+ mobileNumber + ", emailId=" + emailId + ", address=" + address + ", password=" + password + ", dlNo="
-				+ dlNo + ", aadharNo=" + aadharNo + ", passportNo=" + passportNo + ", isRegisteredUser="
-				+ isRegisteredUser + ", isEmployee=" + isEmployee + ", state=" + state + ", city=" + city + ", hubs="
-				+ hubs + "]";
-	}
+				+ dlNo + ", aadharNo=" + aadharNo + ", passportNo=" + passportNo + ", isEmployee=" + isEmployee
+				+ ", state=" + state + ", city=" + city + ", hubs=" + hubs + "]";
+	} 
+    
+    
+    
+    
+    
+    
+	
+    
 
 	
 

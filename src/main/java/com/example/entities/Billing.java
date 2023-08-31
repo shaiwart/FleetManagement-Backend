@@ -21,24 +21,25 @@ public class Billing {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int billingId;
-	private String billingName;
 	
-	private double billAmount;
+	private String billingName; // employee name 
 	
-	private String fuelStatus;
+	private String userName; // customer name 
+	private String userEmailId; 
+	private String customerMobileNo; 
+	private String customerAadharNo; 
+	private String customerPassNo; 
 	
-	private LocalDate startDate;
+	private double billAmount; // needs to be calculated in backend 
 	
-	private LocalDate endDate;
+	private String fuelStatus; // full / half -> needs to be calculated in backend 
+	
+	private LocalDateTime startDate; 
+	
+	private LocalDateTime endDate; 
 	
 	
-	private String userEmailId;
-	
-	private String customerMobileNo;
-	
-	private String customerAadharNo;
-	
-	private String customerPassNo;
+
 	
 //	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //    @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
@@ -84,12 +85,13 @@ public class Billing {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Hubs dropHub;
 
+
+	// = = = = = = = = = = =
+
+
+
 	public int getBillingId() {
 		return billingId;
-	}
-
-	public void setBillingId(int billingId) {
-		this.billingId = billingId;
 	}
 
 	public String getBillingName() {
@@ -100,36 +102,12 @@ public class Billing {
 		this.billingName = billingName;
 	}
 
-	public double getBillAmount() {
-		return billAmount;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setBillAmount(double billAmount) {
-		this.billAmount = billAmount;
-	}
-
-	public String getFuelStatus() {
-		return fuelStatus;
-	}
-
-	public void setFuelStatus(String fuelStatus) {
-		this.fuelStatus = fuelStatus;
-	}
-
-	public LocalDate getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(LocalDate startDate) {
-		this.startDate = startDate;
-	}
-
-	public LocalDate getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(LocalDate endDate) {
-		this.endDate = endDate;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getUserEmailId() {
@@ -164,7 +142,37 @@ public class Billing {
 		this.customerPassNo = customerPassNo;
 	}
 
-	
+	public double getBillAmount() {
+		return billAmount;
+	}
+
+	public void setBillAmount(double billAmount) {
+		this.billAmount = billAmount;
+	}
+
+	public String getFuelStatus() {
+		return fuelStatus;
+	}
+
+	public void setFuelStatus(String fuelStatus) {
+		this.fuelStatus = fuelStatus;
+	}
+
+	public LocalDateTime getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDateTime startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDateTime getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDateTime endDate) {
+		this.endDate = endDate;
+	}
 
 	public Car getCar() {
 		return car;
@@ -182,8 +190,6 @@ public class Billing {
 		this.booking = booking;
 	}
 
-	
-
 	public Hubs getPickupHub() {
 		return pickupHub;
 	}
@@ -200,15 +206,18 @@ public class Billing {
 		this.dropHub = dropHub;
 	}
 
-	
-
 	@Override
 	public String toString() {
-		return "Billing [billingId=" + billingId + ", billingName=" + billingName + ", billAmount=" + billAmount
-				+ ", fuelStatus=" + fuelStatus + ", startDate=" + startDate + ", endDate=" + endDate + ", userEmailId="
-				+ userEmailId + ", customerMobileNo=" + customerMobileNo + ", customerAadharNo=" + customerAadharNo
-				+ ", customerPassNo=" + customerPassNo + ", categoryId=" + categoryId + ", car=" + car + ", booking="
-				+ booking + ", pickupHub=" + pickupHub + ", dropHub=" + dropHub + "]";
+		return "Billing [billingId=" + billingId + ", billingName=" + billingName + ", userName=" + userName
+				+ ", userEmailId=" + userEmailId + ", customerMobileNo=" + customerMobileNo + ", customerAadharNo="
+				+ customerAadharNo + ", customerPassNo=" + customerPassNo + ", billAmount=" + billAmount
+				+ ", fuelStatus=" + fuelStatus + ", startDate=" + startDate + ", endDate=" + endDate + ", categoryId="
+				+ categoryId + ", car=" + car + ", booking=" + booking + ", pickupHub=" + pickupHub + ", dropHub="
+				+ dropHub + "]";
 	}
+
+	
+	
+	
 	
 }

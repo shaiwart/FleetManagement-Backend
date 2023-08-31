@@ -55,7 +55,7 @@ public class BookingController {
 	public Booking getBookingByPhoneNumber(@PathVariable String phoneNumber) { 
 		var abc = bookingService.getBookingByPhoneNumber(phoneNumber); 
 		return abc; 
-	}
+	} 
 	
 	
 	// get record from booking table BY EMAIL ID // will give latest record of a user 
