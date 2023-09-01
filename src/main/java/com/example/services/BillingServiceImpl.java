@@ -29,6 +29,10 @@ public class BillingServiceImpl implements BillingService {
 		billingRepository.save(billing);
 	} 
 
+	@Override
+    public Billing getBillingByuserEmailId(String userEmailId) {
+        return billingRepository.getBillingByuserEmailId(userEmailId);
+    }
 
 	
 }

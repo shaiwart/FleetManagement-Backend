@@ -11,6 +11,8 @@ public interface BillingService {
 	public Billing getBillingByBookingId(int bookingId);
 
 	void save(Billing billing);
+	
+	public  Billing getBillingByuserEmailId(String userEmailId);
 
 	
 	 
