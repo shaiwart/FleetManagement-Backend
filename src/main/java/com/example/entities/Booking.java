@@ -35,6 +35,8 @@ public class Booking {
 	private String dLNumber; 
 	private String aadharNo; 
 	private String passportNo; 
+	private LocalDateTime startDate; 
+	private LocalDateTime endDate;  
 
 	
 
@@ -217,14 +219,32 @@ public class Booking {
 		this.dropHubId = dropHubId;
 	}
 
+	public LocalDateTime getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDateTime startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDateTime getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDateTime endDate) {
+		this.endDate = endDate;
+	}
+
 	@Override
 	public String toString() {
 		return "Booking [bookingId=" + bookingId + ", bookingDateAndTime=" + bookingDateAndTime + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", mobileNumber=" + mobileNumber + ", emailId=" + emailId
-				+ ", dLNumber=" + dLNumber + ", aadharNo=" + aadharNo + ", passportNo=" + passportNo + ", userId="
-				+ userId + ", state=" + state + ", city=" + city + ", pickupHubId=" + pickupHubId + ", dropHubId="
-				+ dropHubId + ", category=" + category + "]";
+				+ ", dLNumber=" + dLNumber + ", aadharNo=" + aadharNo + ", passportNo=" + passportNo + ", startDate="
+				+ startDate + ", endDate=" + endDate + ", userId=" + userId + ", state=" + state + ", city=" + city
+				+ ", pickupHubId=" + pickupHubId + ", dropHubId=" + dropHubId + ", category=" + category + "]";
 	}
+
+	
 	
 
 }

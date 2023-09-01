@@ -22,7 +22,7 @@ public class Billing {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int billingId;
 	
-	private String billingName; // employee name 
+	private String staffName; // employee name 
 	
 	private String userName; // customer name 
 	private String userEmailId; 
@@ -94,12 +94,14 @@ public class Billing {
 		return billingId;
 	}
 
-	public String getBillingName() {
-		return billingName;
+	
+
+	public String getStaffName() {
+		return staffName;
 	}
 
-	public void setBillingName(String billingName) {
-		this.billingName = billingName;
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
 	}
 
 	public String getUserName() {
@@ -208,7 +210,7 @@ public class Billing {
 
 	@Override
 	public String toString() {
-		return "Billing [billingId=" + billingId + ", billingName=" + billingName + ", userName=" + userName
+		return "Billing [billingId=" + billingId + ", staffName=" + staffName + ", userName=" + userName
 				+ ", userEmailId=" + userEmailId + ", customerMobileNo=" + customerMobileNo + ", customerAadharNo="
 				+ customerAadharNo + ", customerPassNo=" + customerPassNo + ", billAmount=" + billAmount
 				+ ", fuelStatus=" + fuelStatus + ", startDate=" + startDate + ", endDate=" + endDate + ", categoryId="
@@ -216,6 +218,7 @@ public class Billing {
 				+ dropHub + "]";
 	}
 
+	
 	
 	
 	
