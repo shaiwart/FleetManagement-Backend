@@ -18,6 +18,7 @@ public class BillingController {
 
     
     // add a record in billing table 
+	@CrossOrigin
     @PostMapping("/api/addbilling")
     public void save(@RequestBody Billing billing)
     {
@@ -25,17 +26,19 @@ public class BillingController {
     }
     
     // get a single billing record by bookingId 
+	@CrossOrigin
     @GetMapping("/api/billing/by-bookingid/{bookingId}") 
 	public Billing getBillingByBookingId(@PathVariable int bookingId) { 
 		return billingService.getBillingByBookingId(bookingId); 	
-	} 
+	}
+	
     
-    
-    @PutMapping("/api/updatebilling/{userEmailId}")
-    @CrossOrigin
+	
+	@PutMapping("/api/updatebilling/{userEmailId}")
     public ResponseEntity<String> updateBillingByuserEmailId(@PathVariable String userEmailId, @RequestBody Billing updatedBilling) {
         try {
-            Billing existingBilling = billingService.getBillingByuserEmailId(userEmailId);
+            Billing existingBilling = billingService.getBillingByuserEmailId(userEmailId); 
+            System.out.println(existingBilling); 
             if (existingBilling != null) {
                 // Update the desired fields in the existingBilling object
                 existingBilling.setFuelStatus(updatedBilling.getFuelStatus());
@@ -51,10 +54,5 @@ public class BillingController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating billing information.");
         }
     }
-
-    
-    
-    
     // You can add more controller methods as needed
-    
 }

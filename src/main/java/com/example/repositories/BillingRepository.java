@@ -19,6 +19,7 @@ public interface BillingRepository extends JpaRepository<Billing, Integer>{
 	public Billing getBillingByBookingId(@Param("bookingId") int bookingId); 
 
 	
-	Billing getBillingByuserEmailId(String userEmailId);
+	@Query(value = "select * from billing where user_email_id = :userEmailId ORDER BY billing_id DESC limit 1", nativeQuery = true)
+	Billing getBillingByuserEmailId(@Param("userEmailId") String userEmailId); 
 
 }
